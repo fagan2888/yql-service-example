@@ -1,1 +1,1 @@
-Simple Flask App used to test a YQL Service
+Simple Flask App used as an example for deployment of a YQL Service
