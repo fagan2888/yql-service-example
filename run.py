@@ -4,10 +4,11 @@
 #   Filename        : run.py
 #   Description     :
 #   Creation Date   : 15-05-2015
-#   Last Modified   : Fri 15 May 2015 10:10:33 PM CEST
+#   Last Modified   : Fri 15 May 2015 10:57:13 PM CEST
 #
 ##################################################
 
-from app import app
+from app import app, manager
 
-app.run(debug=True, host='0.0.0.0')
+#app.run(debug=True, host='0.0.0.0')
+manager.run()
