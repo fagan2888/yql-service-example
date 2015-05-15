@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<table https="false" securityLevel="any" xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+	<meta>
+		<apiKey>http://josuebrunel.org/api</apiKey>
+		<author>Josue Kouka</author>
+		<description>Just a test table</description>
+		<documentationURL>http://josuebrunel.org/doc.html</documentationURL>
+		<sampleQuery>SELECT * FROM mytable</sampleQuery>
+		<sampleQuery>SELECT name FROM mytable WHERE id=4656</sampleQuery>
+		<sampleQuery>SELECT * FROM mytable WHERE name='Josh'</sampleQuery>
+	</meta>
+	<bindings>
+		<insert itemPath="" produces="json">
+			<urls>
+                <url>http://212.83.154.157/service/new?name={name}&age={age}&sex={sex}</url>
+			</urls>
+			<inputs>
+				<keyid="name" required="true" type="xs:string"/>
+				<key id="age" type="xs:string"/>
+				<key id="sex" type="xs:string"/>
+			</inputs>
+		</insert>
+	</bindings>
+</table>
