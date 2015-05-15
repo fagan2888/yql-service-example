@@ -4,7 +4,7 @@
 #   Filename        :
 #   Description     :
 #   Creation Date   : 15-05-2015
-#   Last Modified   : Fri 15 May 2015 10:43:41 PM CEST
+#   Last Modified   : Fri 15 May 2015 11:52:36 PM CEST
 #
 ##################################################
 
@@ -17,3 +17,6 @@ class User(db.Model):
     name = db.Column(db.String(32),index=True, unique=True)
     age = db.Column(db.Integer)
     sex = db.Column(db.CHAR(1))
+
+    def to_dict(self,):
+        return {'id': self.id, 'name': self.name, 'age': self.age, 'sex': self.sex }
