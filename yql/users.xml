@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <table https="false" securityLevel="any" xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
 	<meta>
-		<apiKey>http://josuebrunel.org/api</apiKey>
 		<author>Josue Kouka</author>
 		<description>Just a test table</description>
 		<documentationURL>http://josuebrunel.org/doc.html</documentationURL>
@@ -11,14 +10,25 @@
 	</meta>
 	<bindings>
 		<insert itemPath="" produces="json">
-			<urls>
-                <url>http://212.83.154.157/service/new?name={name}&age={age}&sex={sex}</url>
-			</urls>
 			<inputs>
-				<keyid="name" required="true" type="xs:string"/>
-				<key id="age" type="xs:string"/>
-				<key id="sex" type="xs:string"/>
-			</inputs>
-		</insert>
+				<key id="name" paramType="variable" required="true" type="xs:string"/>
+				<key id="age" paramType="variable" type="xs:string"/>
+				<key id="sex" paramType="variable" type="xs:string"/>
+            </inputs>
+            <execute> <![CDATA[
+                var req = y.rest('http://212.83.154.157:5000/new?name='+name+'&age='+age+'&sex='+sex);
+                response.object = req.get().response
+            ]]>
+            </execute>
+        </insert>
+        <select itemPath="" produces="json">
+            <urls>
+                <url>http://212.83.154.157:5000/get</url>
+                <url>http://212.83.154.157:5000/get/{lol}</url>
+            </urls>
+            <inputs>
+                <key id="lol" type="xs:string" paramType="variable"/>
+            </inputs>
+        </select>
 	</bindings>
 </table>
