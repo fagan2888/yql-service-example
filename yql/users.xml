@@ -24,11 +24,15 @@
         <select itemPath="" produces="json">
             <urls>
                 <url>http://212.83.154.157:5000/get</url>
-                <url>http://212.83.154.157:5000/get/{lol}</url>
             </urls>
             <inputs>
-                <key id="lol" type="xs:string" paramType="variable"/>
+                <key id="" type="xs:string" paramType="variable"/>
             </inputs>
+            <execute><![CDATA[
+                var req = y.rest('http://212.83.154.157:5000/get');
+                response.object = req.get().response;
+            ]]>
+            </execute>
         </select>
 	</bindings>
 </table>
