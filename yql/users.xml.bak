@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<table https="false" securityLevel="any" xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+	<meta>
+		<apiKey>http://josuebrunel.org/api</apiKey>
+		<author>Josue Kouka</author>
+		<description>Just a test table</description>
+		<documentationURL>http://josuebrunel.org/doc.html</documentationURL>
+		<sampleQuery>SELECT * FROM mytable</sampleQuery>
+		<sampleQuery>SELECT name FROM mytable WHERE id=4656</sampleQuery>
+		<sampleQuery>SELECT * FROM mytable WHERE name='Josh'</sampleQuery>
+	</meta>
+	<bindings>
+		<insert itemPath="" produces="json">
+			<urls>
+                <url>http://212.83.154.157/service/new?name={name}&age={age}&sex={sex}</url>
+			</urls>
+			<inputs>
+				<keyid="name" required="true" type="xs:string"/>
+				<key id="age" type="xs:string"/>
+				<key id="sex" type="xs:string"/>
+			</inputs>
+		</insert>
+		<select itemPath="loking.users" produces="xml">
+			<urls>
+				<url>http://lol.com/services?artist={artis}</url>
+				<url>http://lol.com/services/song={song}</url>
+			</urls>
+			<inputs>
+				<key id="song" required="true" type="xs:string"/>
+				<key id="artist" type="xs:string"/>
+			</inputs>
+			<paging model="page">
+				<start default="1" id="ItemPage"/>
+				<total default="10"/>
+				<pageSize id="Count" max="25"/>
+			</paging>
+		</select>
+	</bindings>
+</table>
